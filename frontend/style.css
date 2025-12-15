@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  color: white;
+  background: #0b0f14;
+}
+
+/* BACKGROUND IMAGE WITH DARK OVERLAY (LESS DARK NOW) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("/static/bg.png") center / cover no-repeat;
+  z-index: -1;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* CHAT PANEL */
+.chat-panel {
+  flex: 2;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header h2 {
+  margin: 0;
+}
+
+.chat-header p {
+  margin: 4px 0 10px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* CHAT MESSAGES */
+.bot-msg, .user-msg {
+  max-width: 80%;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  animation: pop 0.25s ease;
+  line-height: 1.4;
+}
+
+.bot-msg {
+  background: rgba(0, 180, 255, 0.18);
+}
+
+.user-msg {
+  background: rgba(255, 255, 255, 0.22);
+  margin-left: auto;
+  text-align: right;
+}
+
+@keyframes pop {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* INPUT */
+.chat-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 140, 255, 0.8);
+}
+
+/* KNOWLEDGE PANEL */
+.knowledge-panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.upload-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.source-list div {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* BOTTOM RIGHT BRANDING */
+.brand-mark {
+  position: fixed;
+  bottom: 18px;
+  right: 22px;
+  text-align: right;
+  pointer-events: none;
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00eaff, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(0, 200, 255, 0.6);
+}
+
+.brand-name {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}

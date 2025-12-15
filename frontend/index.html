@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RAGnosis – LLM Powered QA</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- Background handled fully via CSS -->
+
+<div class="container">
+
+  <!-- LEFT: CHAT -->
+  <div class="chat-panel">
+    <div class="chat-header">
+      <h2>RAGnosis</h2>
+      <p>LLM-powered Retrieval Augmented QA System</p>
+    </div>
+
+    <div id="chatBox" class="chat-box">
+      <div class="bot-msg">
+        👋 Ask questions from your PDFs or URLs
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input
+        id="questionInput"
+        placeholder="Ask a question..."
+        onkeydown="handleEnter(event)"
+      />
+      <button id="askBtn" onclick="askQuestion()">Ask</button>
+    </div>
+  </div>
+
+  <!-- RIGHT: KNOWLEDGE -->
+  <div class="knowledge-panel">
+    <h3>Knowledge Sources</h3>
+
+    <div class="upload-box">
+      <input type="file" id="pdfFile" />
+      <button onclick="uploadPDF()">Upload PDF</button>
+    </div>
+
+    <div class="upload-box">
+      <input type="text" id="urlInput" placeholder="Paste URL..." />
+      <button onclick="uploadURL()">Add URL</button>
+    </div>
+
+    <h4>Stored Sources</h4>
+    <div id="sourceList" class="source-list"></div>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
